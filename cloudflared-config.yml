@@ -1,0 +1,11 @@
+# Place this file at: ~/.cloudflared/config.yml on your server
+# Replace TUNNEL_ID with the UUID from: cloudflared tunnel create n8n-tunnel
+# Replace n8n.YOUR_DOMAIN.com with your actual subdomain
+
+tunnel: TUNNEL_ID
+credentials-file: /root/.cloudflared/TUNNEL_ID.json
+
+ingress:
+  - hostname: n8n.YOUR_DOMAIN.com
+    service: http://localhost:5678
+  - service: http_status:404
